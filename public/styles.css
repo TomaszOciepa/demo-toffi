@@ -1,0 +1,274 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+/* ================= HERO ================= */
+.tc-hero {
+  position: relative;
+  min-height: 100vh;
+  background: url("/images/bckground.png") center / cover no-repeat;
+}
+
+/* OVERLAY */
+.tc-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255,170,60,.95),
+    rgba(255,120,30,.85)
+  );
+  z-index: 1;
+}
+
+/* ================= CORNER LOGO ================= */
+.tc-corner-logo {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+}
+
+.tc-corner-logo img {
+  height: 42px;
+}
+
+/* ================= GRID ================= */
+.tc-hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 96px 20px 48px;
+}
+
+/* ================= ORDER – MOBILE ================= */
+/* MOBILE: HERO -> RIGHT -> CHAT (CHAT NA DOLE) */
+
+.tc-center {
+  order: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.tc-right {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tc-left {
+  order: 3;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= CHAT ================= */
+.tc-chat-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+}
+
+.chat-bubble {
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  max-width: 85%;
+}
+
+.chat-bubble.user {
+  background: #ffffff;
+  align-self: flex-end;
+}
+
+.chat-bubble.bot {
+  background: #dcf8c6;
+  align-self: flex-start;
+}
+
+/* ================= HERO CONTENT ================= */
+.tc-hero-content {
+  text-align: center;
+  max-width: 420px;
+  color: #ffffff;
+}
+
+.tc-profile {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,.85);
+  margin-bottom: 16px;
+}
+
+.tc-logo {
+  max-width: 220px;
+  margin-bottom: 20px;
+}
+
+.tc-lead {
+  font-size: 1.15rem;
+  margin-bottom: 28px;
+}
+
+.tc-cta {
+  display: inline-block;
+  padding: 16px 32px;
+  background: #ff5a00;
+  color: #ffffff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+
+.tc-socials {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 1.6rem;
+}
+
+/* ================= RIGHT SECTION ================= */
+/* BUBBLES ZAWSZE NAD QR */
+.tc-bubbles {
+  order: 1;
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  min-height: 220px;
+  margin-bottom: 32px;
+}
+
+.tc-qr-zone {
+  order: 2;
+}
+
+/* ================= INFO BUBBLES ================= */
+.tc-bubble {
+  position: absolute;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  animation: float 8s ease-in-out infinite;
+}
+
+.tc-bubble.green { background: #dcf8c6; }
+.tc-bubble.white { background: #ffffff; }
+
+/* NIEŁAD KONTROLOWANY */
+.b1  { top: 10%; left: 5%;  transform: rotate(-6deg); }
+.b2  { top: 0%;  right: 0%; transform: rotate(5deg); }
+.b3  { top: 35%; left: 0%;  transform: rotate(3deg); }
+.b4  { top: 25%; right: 10%; transform: rotate(-4deg); }
+.b5  { top: 60%; left: 15%; transform: rotate(6deg); }
+.b6  { top: 55%; right: 5%;  transform: rotate(-5deg); }
+.b7  { top: 80%; left: 0%;  transform: rotate(4deg); }
+.b8  { top: 75%; right: 15%; transform: rotate(-6deg); }
+.b9  { top: 15%; left: 30%; transform: rotate(2deg); }
+.b10 { top: 45%; left: 35%; transform: rotate(-3deg); }
+
+@keyframes float {
+  50% {
+    transform: translateY(-8px) rotate(var(--r, 0deg));
+  }
+}
+
+/* ================= QR ================= */
+.tc-qr-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 18px 38px rgba(0,0,0,.35);
+}
+
+.tc-qr-card img {
+  width: 180px;
+  border-radius: 12px;
+}
+
+.tc-qr-title {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.tc-qr-hint {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 1024px) {
+
+  .tc-hero-grid {
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    align-items: center;
+    padding: 0 5vw;
+  }
+
+  /* RESET KOLEJNOŚCI */
+  .tc-left,
+  .tc-center,
+  .tc-right {
+    order: unset;
+  }
+
+  .tc-left { justify-content: flex-end; }
+  .tc-right { align-items: flex-start; }
+
+  .tc-hero-content { max-width: 520px; }
+
+  .tc-corner-logo img { height: 120px; }
+
+  .tc-qr-zone {
+    position: sticky;
+    top: 120px;
+  }
+}
+
+/* ================= VERY LARGE SCREENS ================= */
+@media (min-width: 1440px) and (min-height: 800px) {
+
+  .tc-hero {
+    display: flex;
+    align-items: center;
+  }
+
+  .tc-hero-grid {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1600px) and (min-height: 900px) {
+  .tc-hero-grid {
+    transform: translateY(40px);
+  }
+}
+
+/* ================= FOOTER ================= */
+.tc-footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
