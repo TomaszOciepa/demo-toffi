@@ -1,7 +1,7 @@
 module Whatsapp
     class Sender
       def self.call(chat_id, message)
-        uri = URI("http://localhost:3008/send")
+        uri = URI("#{ENV.fetch('WHATSAPP_GATEWAY_URL')}/send")
   
         Net::HTTP.post(
           uri,
