@@ -1,8 +1,8 @@
 module Whatsapp
     class Sender
       def self.call(chat_id, message)
-        # uri = URI("#{ENV.fetch('WHATSAPP_GATEWAY_URL')}/send")
-        uri = URI.join(ENV.fetch("WHATSAPP_GATEWAY_URL").strip, "/send")
+        uri = URI(ENV.fetch('WHATSAPP_GATEWAY_URL'))
+        
 
         Net::HTTP.post(
           uri,
