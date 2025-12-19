@@ -1,6 +1,6 @@
 module Chat
     class ContextBuilder
-      def self.call(conversation, limit: 100)
+      def self.call(conversation, limit: 10)
         conversation.messages
                     .order(:created_at)
                     .last(limit)
